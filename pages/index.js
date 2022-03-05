@@ -23,8 +23,9 @@ class CampaignIndex extends Component {
   render() {
     return (
       <div>
+        <link rel="stylesheet" href="./assets/css/index.css"></link>
+        <h3>Open Campaigns</h3>
         {this.renderCampaigns()}
-
         <Button content="Create Campaign" primary icon="add circle"></Button>
       </div>
     )

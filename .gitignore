@@ -4,3 +4,5 @@ node_modules/
 rough.txt
 ADDRESS
 .next/
+.next/cache/
+node_modules

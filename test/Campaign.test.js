@@ -18,7 +18,7 @@ beforeEach(async () => {
     .send({ from: accounts[0], gas: '1000000' })
 
   await factory.methods
-    .createCampaign('100')
+    .createCampaign('100', 'Darsh test')
     .send({ from: accounts[0], gas: '1000000' })
   ;[campaignAddress] = await factory.methods.getDeployedCampaigns().call()
   campaign = await new web3.eth.Contract(

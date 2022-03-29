@@ -20,6 +20,7 @@ contract Campaign{
         uint approvalCount;
         mapping(address => bool) approvals;
     }
+    string nameOfStartup;
     
     Request[] public requests;
     
@@ -32,11 +33,10 @@ contract Campaign{
         require(msg.sender == manager);
         _;
     }
-    
     function Campaign(uint minimum,string nameStartup , address creator) public {
         manager= creator;
         minimumContribution = minimum;
-        nameStartup = nameStartup;
+        nameOfStartup = nameStartup;
     }
     function contribute() public payable{
         require(msg.value>minimumContribution);
@@ -73,4 +73,17 @@ contract Campaign{
         request.complete= true;
         
     } 
+    function getSummary() public view returns(uint,uint,uint,uint,string,address){
+        return(
+            minimumContribution,
+            this.balance,
+            requests.length,
+            approversCount,
+            nameOfStartup,
+            manager
+        );
+    }
+    function getRequestsCount() public view returns(uint){
+        return requests.length;
+    }
 }

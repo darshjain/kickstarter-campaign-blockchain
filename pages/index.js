@@ -23,7 +23,7 @@ class CampaignIndex extends Component {
     let arraySummaryCampaigns = await summary()
     // console.log(summary(), 'Checks')
     console.log('Succesfully received all the campaigns from the factory') //tested
-    console.log(arraySummaryCampaigns, 'Checks')
+    console.log(arraySummaryCampaigns, 'Campaigns Recieved')
     return { campaigns, arraySummaryCampaigns }
   }
   renderCampaigns() {
@@ -43,7 +43,6 @@ class CampaignIndex extends Component {
         ),
         fluid: true,
       }
-      
     })
     return <Card.Group items={items} />
   }

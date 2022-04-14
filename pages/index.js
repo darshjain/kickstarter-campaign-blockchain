@@ -50,9 +50,7 @@ class CampaignIndex extends Component {
     return (
       <Layout>
         <div>
-          <link rel="stylesheet" href="./assets/css/index.css"></link>
           <h3>Open Campaigns</h3>
-
           <Link route="/campaigns/new">
             <a>
               <Button

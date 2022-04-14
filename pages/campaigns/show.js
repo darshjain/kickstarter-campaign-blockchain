@@ -20,7 +20,8 @@ class CampaignShow extends Component {
       requestsCount: summary[2],
       approversCount: summary[3],
       nameOfStartup: summary[4],
-      manager: summary[5],
+      descriptionOfStartup: summary[5],
+      manager: summary[6],
     }
   }
   renderCards() {
@@ -30,6 +31,7 @@ class CampaignShow extends Component {
       requestsCount,
       approversCount,
       nameOfStartup,
+      descriptionOfStartup,
       manager,
     } = this.props
     const items = [
@@ -38,6 +40,12 @@ class CampaignShow extends Component {
         meta: 'Address Of Manager',
         description:
           'The Manager Created this campaign and can requests to withdraw money',
+        style: { overflowWrap: 'break-word' },
+      },
+      {
+        header: descriptionOfStartup,
+        meta: 'Description',
+        description: 'The description of the startup',
         style: { overflowWrap: 'break-word' },
       },
       {
@@ -78,6 +86,20 @@ class CampaignShow extends Component {
     console.log(nameOfStartup, 'Printed')
     return <h2>{nameOfStartup}</h2>
   }
+  renderDescription() {
+    const {
+      minimumContribution,
+      balance,
+      requestsCount,
+      approversCount,
+      nameOfStartup,
+      descriptionOfStartup,
+      manager,
+    } = this.props
+    console.log(descriptionOfStartup, 'Printed')
+    return <h2>{descriptionOfStartup}</h2>
+  }
+
   render() {
     return (
       <Layout>

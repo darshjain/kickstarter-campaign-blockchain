@@ -11,6 +11,7 @@ class CampaignNew extends Component {
     nameCampaign: '',
     errorMessage: '',
     loading: false,
+    descriptionCampaign: '',
   }
   onSubmit = async (event) => {
     event.preventDefault()
@@ -18,7 +19,11 @@ class CampaignNew extends Component {
     try {
       const accounts = await web3.eth.getAccounts()
       await factory.methods
-        .createCampaign(this.state.minimumContribution, this.state.nameCampaign)
+        .createCampaign(
+          this.state.minimumContribution,
+          this.state.nameCampaign,
+          this.state.descriptionCampaign,
+        )
         .send({
           from: accounts[0],
         })
@@ -40,6 +45,15 @@ class CampaignNew extends Component {
               value={this.state.nameCampaign}
               onChange={(event) =>
                 this.setState({ nameCampaign: event.target.value })
+              }
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Description Of Startup</label>
+            <Input
+              value={this.state.descriptionCampaign}
+              onChange={(event) =>
+                this.setState({ descriptionCampaign: event.target.value })
               }
             />
           </Form.Field>

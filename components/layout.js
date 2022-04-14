@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'semantic-ui-react'
+import { Container, Divider, Grid } from 'semantic-ui-react'
 import Head from 'next/head'
 import Header from './Header'
 
@@ -15,7 +15,21 @@ export default (props) => {
       <Header />
 
       {props.children}
-      <h1>Footer</h1>
+      {/* <h1>Footer</h1> */}
+      <Divider></Divider>
+      <Container>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={10}>
+              <p>Made With ❤️</p>
+            </Grid.Column>
+            <Grid.Column width={1}>
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     </Container>
   )
 }
